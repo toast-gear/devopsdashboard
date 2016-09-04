@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.Models;
 using System.Net;
 using System.Net.Http;
+using API.Repository;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,40 +17,57 @@ namespace API.Controllers
     {
         [Route("test")]
         [HttpGet]
-        public async Task<HttpResponseMessage> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            HttpResponseMessage hrm = new HttpResponseMessage();
-            hrm.StatusCode = HttpStatusCode.OK;
-            hrm.ReasonPhrase = "true";
-            return hrm;
+            return Ok();
         }
 
         [Route("authenticatedomainuser")]
         [HttpPost]
-        public async Task<HttpResponseMessage> authenticatedomainuser([FromBody] DomainAuthenticationModel DomainAuthenticationModel)
+        public async Task<IActionResult> AuthenticateDomainUser([FromBody] DomainAuthenticationModel DomainAuthenticationModel)
         {
-            HttpResponseMessage hrm = new HttpResponseMessage();
+            AuthenticationRepository AuthenticationRepo = new AuthenticationRepository();
+            AuthenticatedDashboardUserModel dnu = new AuthenticatedDashboardUserModel();
             try
             {
-                if (DomainAuthenticationModel.domain == "REDWARE" & DomainAuthenticationModel.username == "callum.tait" & DomainAuthenticationModel.password == "Get1n2it")
-                {
-                    hrm.StatusCode = HttpStatusCode.OK;
-                    hrm.ReasonPhrase = "true";
-                    return hrm;
-                }
-                else
-                {
-                    hrm.StatusCode = HttpStatusCode.OK;
-                    hrm.ReasonPhrase = "false";
-                    return hrm;
-                }
+                dnu = AuthenticationRepo.AuthenticateDomainUsers(DomainAuthenticationModel);
             }
             catch (Exception ex)
             {
-                hrm.StatusCode = HttpStatusCode.InternalServerError;
-                hrm.ReasonPhrase = ex.Message;
-                return hrm;
+                return StatusCode(500);
             }
+            return Ok(dnu);
+            
         }
     }
+    //    public async Task<HttpResponseMessage> AuthenticateDomainUser([FromBody] DomainAuthenticationModel DomainAuthenticationModel)
+    //    {
+
+    //        AuthenticationRepository AuthenticationRepo = new AuthenticationRepository();
+    //        HttpResponseMessage hrm = new HttpResponseMessage();
+    //        try
+    //        {
+    //            DashboardUserModel dnu = AuthenticationRepo.AuthenticateDomainUsers(DomainAuthenticationModel);
+    //            if(dnu.group == null | dnu.username == null)
+    //            {
+    //                hrm.RequestMessage.CreateResponse<DashboardUserModel>(HttpStatusCode.OK, dnu);
+    //            }
+    //            else
+    //            {
+    //                hrm.RequestMessage.CreateResponse<DashboardUserModel>(HttpStatusCode.OK, dnu);
+    //            }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            hrm.RequestMessage.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+    //        }
+    //        return hrm;
+    //    }
+    //}
 }
+
+/*
+.NOTES
+async Task<IActionResult> 
+
+*/

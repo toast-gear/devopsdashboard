@@ -1,20 +1,22 @@
 ﻿(function () {
-    var dashboardApp = angular.module('dashboardApp', ['ui.router'])
+    var dashboardApp = angular.module('dashboardApp', ['ui.router', 'gridster'])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
-
+         
         $stateProvider
             .state('home', {
                 url: '/',
                 templateUrl: '/partials/login.html',
                 controller: 'loginController as loginModel'
             })
-            .state('test', {
+            .state('dashboard', {
                 url: '/dashboard',
-                templateUrl: '/partials/dashboard.html'
+                templateUrl: '/partials/dashboard.html',
+                controller: 'dashboardController as dashboardController'
             });
 
-        //injected $location provider into your route provider, setting html 5 mode to true gets rid of the '#?' in your URL
-        $locationProvider.html5Mode(true);
+        // injected $location provider into your route provider, setting html 5 mode to true gets rid of the '#?' in your URL
+        // we want false otherwise routing breaks
+        $locationProvider.html5Mode(false);
     })
 })();

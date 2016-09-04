@@ -1,26 +1,25 @@
 ﻿<div class="row">
     <div id="alert1" class="alert alert-info" style="margin: 0 auto; max-width:400px">
-        Use your domain credentials to log into the DevOps Dashboard.
+        Use your domain credentials to log into the DevOps Dashboard. The supported domains are: REDWARE.LOCAL
     </div>
-    <div class="spacer-large"></div>
+    <div class="tools-spacer-large"></div>
     <form data-ng-submit="loginModel.loginFunction()" class="bootstrap-admin-login-form">
         <h1>Login</h1>
         <div class="form-group">
             <label class="sr-only">Domain</label>
-            <input type="text" class="form-control" id="domain" data-ng-model="loginModel.credObj.domain" />
+            <input type="text" class="form-control" id="domain" data-ng-model="loginModel.domain" />
         </div>
         <div class="form-group">
             <label class="sr-only">Email address</label>
-            <input type="text" class="form-control" id="username" data-ng-model="loginModel.credObj.username" />
+            <input type="text" class="form-control" id="username" data-ng-model="loginModel.username" />
         </div>
         <div class="form-group">
             <label class="sr-only">Password</label>
-            <input type="password" class="form-control" id="password" data-ng-model="loginModel.credObj.password" />
+            <input type="password" class="form-control" id="password" data-ng-model="loginModel.password" />
         </div>
         <div class="form-group">
             <Button ID="btn1" type="submit" class="btn btn-lg btn-primary">Submit</Button>
             <!--<input id="submit" type="submit" value="Submit" />-->
-            <pre>{{loginModel.credObj | json}}</pre>
         </div>
     </form>
 </div>

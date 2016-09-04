@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('loginController', function ($scope, $http) {
+        .controller('loginController', function ($scope, $http, $location) {
 
             var loginModel = this;
 
@@ -9,24 +9,31 @@
             loginModel.password = '';
             loginModel.loginFunction = function () {
                 var root = 'http://api.devopsdashboard.com/api/authentication/authenticatedomainuser';
-                $http.post(root,loginModel.credObj)
+                $http.post(root, loginModel)
                     .success(function (result) {
                         console.log(result);
+                        if (result.isAuthenticated === true) {
+                            $location.path('/dashboard')
+                        }
                     });
-                //$http.post(root, loginModel.credObj)
-                //    .success(function (result) {
-                //        console.log(result);
-                //    });
             };
 
-            /* This does a successfull get 
-
+            /*
             loginModel.loginFunction = function () {
-                var root = 'http://localhost:57023/api/authentication/authenticatedomainuser';
-                $http.get(root)
+                var root = 'http://api.devopsdashboard.com/api/authentication/authenticatedomainuser';
+                $http.post(root,loginModel)
                     .success(function (result) {
                         console.log(result);
                     });
+            }; 
+
+
+            loginModel.username = '';
+            loginModel.password = '';
+            loginModel.loginFunction = function () {
+                var root = 'http://api.devopsdashboard.com/api/authentication/authenticatedomainuser';
+                $http.post(root,loginModel)
+                    .success($location.path('/dashboard'));
             };
 
             */

@@ -29,7 +29,6 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
             services.AddCors(o =>
             {
                 o.AddPolicy("AllowFromAll",
@@ -38,6 +37,7 @@ namespace API
                    .AllowAnyOrigin()
                    .AllowAnyHeader());
             });
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,8 +46,8 @@ namespace API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
             app.UseCors("AllowFromAll");
+            app.UseMvc();
         }
     }
 }

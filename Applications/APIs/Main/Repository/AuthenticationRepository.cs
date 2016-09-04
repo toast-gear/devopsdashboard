@@ -1,12 +1,32 @@
-﻿using System;
+﻿using API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class AuthenticationRepo
+    public class AuthenticationRepository
     {
+        public AuthenticatedDashboardUserModel AuthenticateDomainUsers(DomainAuthenticationModel DomainAuthenticationModel)
+        {
+            AuthenticatedDashboardUserModel adum = new AuthenticatedDashboardUserModel();
+            if (DomainAuthenticationModel.domain == "sudo" & DomainAuthenticationModel.username == "sudo" & DomainAuthenticationModel.password == "sudo")
+            {
+                adum.group = "Admin";
+                adum.username = "sudo";
+                adum.isAuthenticated = true;
+                return adum;
+            }
+            else
+            {
+                // This is where you would implement your AD AUTHENTICATION methods. For now I will just return a false
+                adum.group = null;
+                adum.username = null;
+                adum.isAuthenticated = false;
+                return adum;
+            }
+        }
 
         /*
 
