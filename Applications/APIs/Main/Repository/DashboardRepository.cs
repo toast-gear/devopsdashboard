@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace API.Repository
 {
@@ -14,18 +15,18 @@ namespace API.Repository
             List<PasswordsModel> PasswordModelList = new List<PasswordsModel>();
             try
             {
-                if (System.IO.File.Exists(System.IO.Path.Combine((""))))
+                if (File.Exists(System.IO.Path.Combine((""))))
                 {
-                    PasswordsModel pm = new PasswordsModel();
-                    pm.Company = 1;
-                    pm.Product = 1;
-                    pm.Environment = 1;
-                    pm.URL = "test";
-                    pm.Password = "test";
-                    PasswordModelList.Add(pm);
+                    PasswordsModel PasswordModel = new PasswordsModel();
+                    PasswordModel.Company = 1;
+                    PasswordModel.Product = 1;
+                    PasswordModel.Environment = 1;
+                    PasswordModel.URL = "test";
+                    PasswordModel.Password = "test";
+                    PasswordModelList.Add(PasswordModel);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }

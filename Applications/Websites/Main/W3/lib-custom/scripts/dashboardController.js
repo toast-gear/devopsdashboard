@@ -1,6 +1,13 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('dashboardController', function ($scope) {
+        .controller('dashboardController', function ($scope, dataService) {
+            var NavBar = false;
+            var userObject = dataService.getObject();
+            if (userObject.isAuthenticated == true) {
+                var NavBar = true;
+                console.log(NavBar);
+            }
+
             $scope.standardItems = [
                 { sizeX: 2, sizeY: 1, row: 0, col: 0 },
                 { sizeX: 2, sizeY: 2, row: 0, col: 2 },

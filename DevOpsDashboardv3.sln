@@ -37,6 +37,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W3", "Applications\Websites
 		SlnRelativePath = "Applications\Websites\Main\W3\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5B705FC-64E1-4433-8ECD-2E61CB091D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API-Main-Test", "Tests\API-Main-Test\API-Main-Test.csproj", "{F94A6EF0-A258-4110-BAD7-BA067012783E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{57BEA93F-348F-40B5-96FB-D0602EADCF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57BEA93F-348F-40B5-96FB-D0602EADCF95}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{57BEA93F-348F-40B5-96FB-D0602EADCF95}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F94A6EF0-A258-4110-BAD7-BA067012783E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94A6EF0-A258-4110-BAD7-BA067012783E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94A6EF0-A258-4110-BAD7-BA067012783E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94A6EF0-A258-4110-BAD7-BA067012783E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +68,6 @@ Global
 		{E623B386-9F8F-4001-BA6B-33E40FA99C87} = {DD110CC7-494B-499D-8557-027F0EF75390}
 		{DBFEAC15-A007-4770-B4A1-92854A82DEFB} = {E623B386-9F8F-4001-BA6B-33E40FA99C87}
 		{57BEA93F-348F-40B5-96FB-D0602EADCF95} = {DBFEAC15-A007-4770-B4A1-92854A82DEFB}
+		{F94A6EF0-A258-4110-BAD7-BA067012783E} = {C5B705FC-64E1-4433-8ECD-2E61CB091D8F}
 	EndGlobalSection
 EndGlobal

@@ -10,21 +10,21 @@ namespace API.Repository
     {
         public AuthenticatedDashboardUserModel AuthenticateDomainUsers(DomainAuthenticationModel DomainAuthenticationModel)
         {
-            AuthenticatedDashboardUserModel adum = new AuthenticatedDashboardUserModel();
-            if (DomainAuthenticationModel.domain == "sudo" & DomainAuthenticationModel.username == "sudo" & DomainAuthenticationModel.password == "sudo")
+            AuthenticatedDashboardUserModel AuthModel = new AuthenticatedDashboardUserModel();
+            if (DomainAuthenticationModel.Domain == "sudo" & DomainAuthenticationModel.UserName == "sudo" & DomainAuthenticationModel.Password == "sudo")
             {
-                adum.group = "Admin";
-                adum.username = "sudo";
-                adum.isAuthenticated = true;
-                return adum;
+                AuthModel.Roles = "Admin";
+                AuthModel.UserName = "sudo";
+                AuthModel.isAuthenticated = true;
+                return AuthModel;
             }
             else
             {
                 // This is where you would implement your AD AUTHENTICATION methods. For now I will just return a false
-                adum.group = null;
-                adum.username = null;
-                adum.isAuthenticated = false;
-                return adum;
+                AuthModel.Roles = null;
+                AuthModel.UserName = null;
+                AuthModel.isAuthenticated = false;
+                return AuthModel;
             }
         }
 

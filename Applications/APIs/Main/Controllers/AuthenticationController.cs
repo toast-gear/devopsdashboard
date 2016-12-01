@@ -32,7 +32,7 @@ namespace API.Controllers
             {
                 dnu = AuthenticationRepo.AuthenticateDomainUsers(DomainAuthenticationModel);
             }
-            catch (Exception ex)
+            catch
             {
                 return StatusCode(500);
             }
