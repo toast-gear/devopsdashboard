@@ -2,7 +2,7 @@
     angular.module('dashboardApp')
         .controller('loginController', function ($rootScope, $http, $location, $state, authenticationService) {
 
-            $rootScope.disableNavBar = true;
+            $rootScope.enableNavBar = false;
             var loginModel = this;
             loginModel.domain = 'sudo';
             loginModel.username = 'sudo';
