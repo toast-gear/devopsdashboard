@@ -1,8 +1,8 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('loginController', function ($scope, $http, $location, $state, dataService) {
+        .controller('loginController', function ($scope, $http, $location, $state, authenticationService) {
 
-            var NavBar = false;
+            var EnableNavBar = true;
             var loginModel = this;
             loginModel.domain = 'sudo';
             loginModel.username = 'sudo';
@@ -12,7 +12,9 @@
                 $http.post(root, loginModel)
                     .success(function (result) {
                         if (result.isAuthenticated === true) {
-                            dataService.setObject(result);
+                            console.log('loginController Result')
+                            console.log(result)
+                            authenticationService.authentication = result;
                             $location.path('/dashboard');
                         }
                     });

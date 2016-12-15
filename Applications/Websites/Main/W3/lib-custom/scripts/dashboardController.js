@@ -1,11 +1,16 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('dashboardController', function ($scope, dataService) {
-            var NavBar = false;
-            var userObject = dataService.getObject();
-            if (userObject.isAuthenticated == true) {
-                var NavBar = true;
-                console.log(NavBar);
+        .controller('dashboardController', function ($scope, $window, authenticationService) {
+            var EnableNavBar = false;
+            console.log('dashboardController Result')
+            console.log(authenticationService.authentication);
+            if (authenticationService.authentication.isAuthenticated === true) {
+                EnableNavBar = true;
+                console.log(EnableNavBar);
+            }
+            else
+            {
+                $window.location.href = '/'
             }
 
             $scope.standardItems = [

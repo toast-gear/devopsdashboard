@@ -18,39 +18,8 @@
             // we want false otherwise routing breaks
             $locationProvider.html5Mode(false);
         })
-        .service('dataService', function () {
-            var object = {};
-
-            return {
-                getObject: function () {
-                    return object;
-                },
-                setObject: function (value) {
-                    object = value;
-                }
-            };
-        })
-
+        .service('authenticationService', function authenticationService() {
+            var dataService = this;
+            dataService.authentication = 'Default';
+        });
 })();
-
-
-/*
-         .service('dataShareService', function ($rootScope) {
-            this.sendData = function (data) {
-                // this.data = data;
-                $rootScope.$broadcast('data_shared', data);
-            };
-            this.getData = function () {
-                return receivedData = this.data;
-            };
-        });
-
-        .service('dataShareService', function ($rootScope) {
-            this.sendData = function () {
-                $rootScope.$broadcast('data_shared', 'TEST');
-            };
-            this.getData = function () {
-                return receivedData = this.data;
-            };
-        });
- */
