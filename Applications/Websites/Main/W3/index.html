@@ -16,27 +16,26 @@
     <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/lib-custom/scripts/dashboardApp.js"></script>
-    <script type="text/javascript" src="/lib-custom/scripts/dataShareService.js"></script>
     <script type="text/javascript" src="/lib-custom/scripts/loginController.js"></script>
     <script type="text/javascript" src="/lib-custom/scripts/dashboardController.js"></script>
     <script type="text/javascript" src="/bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
     <script type="text/javascript" src="/bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
 </head>
 <body>
-    <div ng-if="EnableNavBar">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">DevOps Dashboard</a>
+    <div ng-hide="disableNavBar">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">DevOps Dashboard</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
-                </ul>
-            </div>
-        </nav>
+            </nav>
     </div>
     <main ui-view=""></main>
 </body>

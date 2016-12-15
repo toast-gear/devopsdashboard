@@ -1,12 +1,8 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('dashboardController', function ($scope, $window, authenticationService) {
-            var EnableNavBar = false;
-            console.log('dashboardController Result')
-            console.log(authenticationService.authentication);
+        .controller('dashboardController', function ($rootScope, $scope, $window, authenticationService) {
             if (authenticationService.authentication.isAuthenticated === true) {
-                EnableNavBar = true;
-                console.log(EnableNavBar);
+                $rootScope.disableNavBar = false;
             }
             else
             {

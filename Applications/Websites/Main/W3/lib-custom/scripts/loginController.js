@@ -1,8 +1,8 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('loginController', function ($scope, $http, $location, $state, authenticationService) {
+        .controller('loginController', function ($rootScope, $http, $location, $state, authenticationService) {
 
-            var EnableNavBar = true;
+            $rootScope.disableNavBar = true;
             var loginModel = this;
             loginModel.domain = 'sudo';
             loginModel.username = 'sudo';
@@ -12,8 +12,8 @@
                 $http.post(root, loginModel)
                     .success(function (result) {
                         if (result.isAuthenticated === true) {
-                            console.log('loginController Result')
-                            console.log(result)
+                            console.log('loginController Result');
+                            console.log(result);
                             authenticationService.authentication = result;
                             $location.path('/dashboard');
                         }
