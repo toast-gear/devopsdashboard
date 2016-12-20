@@ -1,12 +1,12 @@
 ﻿(function () {
-    var dashboardApp = angular.module('dashboardApp', ['ui.router', 'gridster'])
+    var dashboardApp = angular.module('dashboardApp', ['ui.router', 'gridster', 'LocalStorageModule', 'authenticationModule'])
         .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider
-                .state('root', {
+                .state('root', {    
                     url: '/',
                     templateUrl: '/partials/login.html',
-                    controller: 'loginController as loginModel'
+                    controller: 'loginController as loginController'
                 })
                 .state('dashboard', {
                     url: '/dashboard',
@@ -18,8 +18,9 @@
             // we want false otherwise routing breaks
             $locationProvider.html5Mode(false);
         })
-        .service('authenticationService', function authenticationService() {
-            var dataService = this;
-            dataService.authentication = 'Default';
-        });
+        .config(['localStorageServiceProvider', function(localStorageServiceProvider) {
+            localStorageServiceProvider
+                .setPrefix('dashboardApp_')
+                .setStorageType('sessionStorage');
+        }]);
 })();

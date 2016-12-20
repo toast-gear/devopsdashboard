@@ -1,12 +1,20 @@
 ﻿(function () {
     angular.module('dashboardApp')
-        .controller('dashboardController', function ($rootScope, $scope, $window, authenticationService) {
-            if (authenticationService.authentication.isAuthenticated === true) {
-                $rootScope.enableNavBar = true;
+        .controller('dashboardController', function ($rootScope, $scope, $window, localStorageService, authenticationService) {
+
+            // THIS IS NOW POINTLESS CODE, KEEPING TO LEARN
+            console.log('authenticationService result below');
+            console.log(authenticationService.authenticateUser);
+            console.log('$rootScope result below');
+            console.log($rootScope.isAuthenticated);
+            // THIS IS NOW POINTLESS CODE, KEEPING TO LEARN
+
+            if (localStorageService.get('isAuthenticated') !== true) {
+                $window.location.href = '/';
             }
             else
             {
-                $window.location.href = '/'
+                $rootScope.enableNavBar = true;
             }
 
             $scope.standardItems = [

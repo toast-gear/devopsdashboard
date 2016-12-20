@@ -1,8 +1,8 @@
 ﻿<html ng-app="dashboardApp">
 <head>
+    <title>DevOps Dashboard</title>
     <base href="/">
     <meta charset="utf-8" />
-    <title>DevOps Dashboard</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bower_components/angular-gridster/dist/angular-gridster.min.css" />
     <link rel="stylesheet" href="/lib-custom/css/bootstrap-admin-theme.css" />
@@ -10,16 +10,20 @@
     <link rel="stylesheet" href="/lib-custom/css/global-gridster.css" />
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script type="text/javascript" src="/bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
     <script type="text/javascript" src="/bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
-    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/lib-custom/scripts/dashboardApp.js"></script>
-    <script type="text/javascript" src="/lib-custom/scripts/loginController.js"></script>
-    <script type="text/javascript" src="/lib-custom/scripts/dashboardController.js"></script>
     <script type="text/javascript" src="/bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
     <script type="text/javascript" src="/bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/dashboardApp.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/authenticationModule.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/httpAuthenticationService.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/authenticationService.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/loginController.js"></script>
+    <script type="text/javascript" src="/lib-custom/scripts/dashboardController.js"></script>
 </head>
 <body>
     <div ng-if="enableNavBar">
