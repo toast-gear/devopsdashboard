@@ -17,7 +17,7 @@ namespace API.Controllers
     {
         [Route("test")]
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public IActionResult GetAll()
         {
             return Ok();
         }

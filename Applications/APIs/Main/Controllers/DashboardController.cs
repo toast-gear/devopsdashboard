@@ -21,5 +21,19 @@ namespace API.Controllers
             PasswordsModelList = DashboardRepo.GetPasswords();
             return PasswordsModelList;
         }
+
+        [Route("widgetword")]
+        [HttpGet]
+        public async Task<WordWidgetModel> GetRandomWord()
+        {
+            try
+            {
+                return await DashboardRepository.getwordwidget();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

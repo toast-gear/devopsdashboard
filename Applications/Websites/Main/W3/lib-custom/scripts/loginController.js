@@ -13,27 +13,18 @@
                 loginController.username = 'sudo';
                 loginController.submit = function () {
                     httpAuthenticationService.testService();
-                    if (httpAuthenticationService.authenticateDomainUser() === true) {
-                        localStorageService.set('isAuthenticated', true);
-                        $location.path('/dashboard');
-                    }
+                    $rootScope.credentialModel = {
+                        domain: loginController.domain,
+                        password: loginController.password,
+                        userName: loginController.username
+                    };
+                    httpAuthenticationService.authenticateDomainUser().then(function (response) {
+                        if (response.data.isAuthenticated === true) {
+                            localStorageService.set('isAuthenticated', true);
+                            $location.path('/dashboard');
+                        }
+                    });
                 };
             }
-
-            //loginModel.loginFunction = function () {
-            //    var root = 'http://api.devopsdashboard.com/api/authentication/authenticatedomainuser';
-            //    $http.post(root, loginModel)
-            //        .success(function (result) {
-            //            if (result.isAuthenticated === true) {
-            //                // THIS IS NOW POINTLESS CODE, KEEPING TO LEARN
-            //                authenticationService.authenticateUser();
-            //                $rootScope.isAuthenticated = true;
-            //                // THIS IS NOW POINTLESS CODE, KEEPING TO LEARN
-
-            //                localStorageService.set('isAuthenticated', true);
-            //                $location.path('/dashboard');
-            //            }
-            //        });
-            //};
         });
 })();

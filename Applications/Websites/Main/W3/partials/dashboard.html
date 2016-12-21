@@ -1,5 +1,9 @@
-﻿<div gridster>
-    <ul>
-        <li gridster-item="item" ng-repeat="item in standardItems" class="grid-fail"></li>
-    </ul>
+﻿<div class="container">
+    <div gridster>
+        <ul>
+            <li class="grid-randomword-grid" gridster-item="item" ng-repeat="item in standardItems">
+                <small>{{ item.value }}</small>
+            </li>
+        </ul>
+    </div>
 </div>

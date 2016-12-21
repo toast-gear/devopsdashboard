@@ -17,4 +17,14 @@ namespace API.Models
         public string URL { get; set; }
         public string Password { get; set; }
     }
+
+    public class WordWidgetModel
+    {
+        public WordWidgetModel()
+        {
+
+        }
+        public string Word { get; set; }
+        public string Definition { get; set; }
+    }
 }

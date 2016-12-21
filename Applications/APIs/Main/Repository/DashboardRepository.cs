@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace API.Repository
 {
@@ -31,6 +33,27 @@ namespace API.Repository
                 return null;
             }
             return PasswordModelList;
+        }
+
+        public static async Task<WordWidgetModel> getwordwidget()
+        {
+            List<object> ResultObjects = new List<object>();
+            using (var Client = new HttpClient())
+            {
+                WordWidgetModel WordWidgetModel = new WordWidgetModel();
+                using (var WordResponse = await Client.GetAsync(new Uri("http://www.setgetgo.com/randomword/get.php")))
+                {
+                    WordWidgetModel.Word = await WordResponse.Content.ReadAsStringAsync();
+                    // using (var DefinitionResponse = await Client.GetAsync(new Uri("http://api.pearson.com/v2/dictionaries/entries?headword=" + WordWidgetModel.Word)))
+                    using (var Response = await Client.GetAsync(new Uri("http://api.pearson.com/v2/dictionaries/entries?headword=dog")))
+                    {
+                        // Part of the response is just junk we dont want to deserialise
+                        var Results = JsonConvert.DeserializeObject(await Response.Content.ReadAsStringAsync());
+                        WordWidgetModel.Definition = "Test definiton data";
+                        return WordWidgetModel;
+                    }
+                }
+            }
         }
     }
 }
