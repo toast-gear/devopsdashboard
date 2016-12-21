@@ -1,7 +1,10 @@
 ﻿<div class="container">
     <div gridster>
         <ul>
-            <li class="grid-randomword-grid" gridster-item="item" ng-repeat="item in standardItems">
+            <li class="grid-randomword-grid" gridster-item="item" ng-repeat="wordWidget in wordWidgetItems">
+                <small>{{ wordWidget.value }}</small>
+            </li>
+            <li class="grid-inforamtion" gridster-item="item" ng-repeat="item in standardItems">
                 <small>{{ item.value }}</small>
             </li>
         </ul>

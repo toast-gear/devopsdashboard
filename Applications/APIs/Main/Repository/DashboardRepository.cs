@@ -17,7 +17,7 @@ namespace API.Repository
             List<PasswordsModel> PasswordModelList = new List<PasswordsModel>();
             try
             {
-                if (File.Exists(System.IO.Path.Combine((""))))
+                if (File.Exists(Path.Combine((""))))
                 {
                     PasswordsModel PasswordModel = new PasswordsModel();
                     PasswordModel.Company = 1;
