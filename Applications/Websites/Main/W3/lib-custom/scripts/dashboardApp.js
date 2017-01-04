@@ -12,6 +12,11 @@
                     url: '/dashboard',
                     templateUrl: '/partials/dashboard.html',
                     controller: 'dashboardController as dashboardController'
+                })
+                .state('reports', {
+                    url: '/reports',
+                    templateUrl: '/partials/reports.html',
+                    controller: 'reportsController as reportsController'
                 });
 
             // injected $location provider into your route provider, setting html 5 mode to true gets rid of the '#?' in your URL
